@@ -1,5 +1,3 @@
-// pr1
-
 function cubeNumber(number) {
         if (typeof number !== 'number') {
           return "Please enter a valid number";
@@ -9,8 +7,6 @@ function cubeNumber(number) {
           return result;
         }
       }
-
-// pr2
 
 function matchFinder(string1, string2) {
   if (typeof string1 !== 'string' || typeof string2 !== 'string') {
@@ -27,38 +23,43 @@ function matchFinder(string1, string2) {
   return false;
 }
 
-// pr3
+function sortMaker(arr) {
+  if (arr.length !== 2) {
+      return "Invalid Input";
+  }
 
-function sortMaker(arr) {    
-  if (arr.some(element => element < 0)) {
+  if (arr[0] < 0 || arr[1] < 0) {
       return "Invalid Input";
   }
 
   if (arr[0] === arr[1]) {
       return "equal";
   } else {
-      return arr[0] > arr[1] ? [arr[0], arr[1]] : [arr[1], arr[0]];
+      if (arr[0] > arr[1]) {
+          return [arr[0], arr[1]];
+      } else {
+          return [arr[1], arr[0]];
+      }
   }
 }
 
-// pr4
-
 function findAddress(obj) {
-  const { street = "__", house = "__", society = "__" } = obj;
-  return [street, house, society];
+  const first = obj.street || "__";
+  const sec = obj.house || "__";
+  const third = obj.society || "__";
+
+  return [first, sec, third];
 }
 
-// pr5
-
-function canPay(array, number) {
-  if (array.length === 0) {
+function canPay(changeArray, totalDue) {
+  if (changeArray.length === 0) {
       return "Array is empty.";
   }
 
   let arraySum = 0;
-  for (let i = 0; i < array.length; i++) {
-      arraySum += array[i];
+  for (let i = 0; i < changeArray.length; i++) {
+      arraySum += changeArray[i];
   }
 
-  return arraySum >= number;
+  return arraySum >= totalDue;
 }
