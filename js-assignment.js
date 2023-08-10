@@ -55,6 +55,10 @@ function canPay(array, number) {
       return "Array is empty.";
   }
 
-  const arraySum = array.reduce((total, value) => total + value, 0);
+  let arraySum = 0;
+  for (let i = 0; i < array.length; i++) {
+      arraySum += array[i];
+  }
+
   return arraySum >= number;
 }
